@@ -30,5 +30,11 @@ export class ExpenseService {
     return this._httpClient.get<IHttpResponse>(`${this.baseUrl}/category/${category}`, { params })
   }
 
-
+  getExpensesBySource(source: number, page: IPagination): Observable<IHttpResponse> {
+    const params = {
+      size: page.size,
+      page: page.page,
+    };
+    return this._httpClient.get<IHttpResponse>(`${this.baseUrl}/source/${source}`, { params })
+  }
 }
