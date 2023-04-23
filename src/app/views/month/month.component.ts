@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./month.component.scss']
 })
 export class MonthComponent {
+  pageTitle = 'Month';
 
 }
