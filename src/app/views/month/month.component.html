@@ -2,6 +2,15 @@
   <app-side-bar></app-side-bar>
   <div class="sub-container">
     <h1>Despesas totais agrupadas por mês</h1>
-    <app-expenses-table [pageTitle]="pageTitle"></app-expenses-table>
+    <h4>Selecione um mês</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Mês da despesa</mat-label>
+      <mat-select [(ngModel)]="monthSelected" name="month" (selectionChange)="onChangeMonth()">
+        <mat-option *ngFor="let month of months" [value]="month.value">
+          {{month.viewValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <app-expenses-table *ngIf="monthSelected" [pageTitle]="pageTitle" [searchParam]="searchParam"></app-expenses-table>
   </div>
 </div>

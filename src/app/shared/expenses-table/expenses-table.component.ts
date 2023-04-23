@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ViewChild, Input } from '@angular/core';
+import { AfterViewInit, Component, ViewChild, Input, SimpleChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,10 +15,8 @@ import { ExpenseService } from 'src/app/services/expense.service';
 })
 
 export class ExpensesTableComponent implements AfterViewInit {
-  @Input()
-  pageTitle!: string;
-  @Input()
-  searchParam!: number;
+  @Input() pageTitle!: string;
+  @Input() searchParam!: number;
 
 
   displayedColumns: string[] = ['orgaoNome','valorEmpenhado', 'valorLiquidado', 'valorPago'];
@@ -60,7 +58,7 @@ export class ExpensesTableComponent implements AfterViewInit {
           ).pipe(catchError(() => of(null)));
         } else if(this.pageTitle === "Source") {
           return this.expenseService!
-          .getExpensesByMonth(
+          .getExpensesBySource(
             this.searchParam,
             params
           ).pipe(catchError(() => of(null)));
@@ -86,6 +84,12 @@ export class ExpensesTableComponent implements AfterViewInit {
     )
     .subscribe(data => {
       (this.data = data)
+
+      console.log(data)
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.ngAfterViewInit()
   }
 }
