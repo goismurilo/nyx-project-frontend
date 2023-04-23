@@ -1,0 +1,15 @@
+.container {
+  width: 400px;
+  // height: 300px;
+  align-items: center;
+}
+
+mat-drawer {
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  padding: 20px;
+  text-decoration: none;
+}
