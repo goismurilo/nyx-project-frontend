@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent {
-
+  pageTitle = "Category";
 }
