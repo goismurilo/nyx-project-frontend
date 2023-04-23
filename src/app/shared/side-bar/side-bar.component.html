@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="logo"></div>
+  <ul>
+    <li *ngFor="let page of pages">
+      <a
+        [routerLink]="[page.routeLink]"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{exact: true}"
+      >
+        <mat-icon aria-hidden="false" fontIcon="{{ page.icon }}"></mat-icon>
+        <span>{{ page.label }}</span>
+      </a>
+    </li>
+  </ul>
+</div>
