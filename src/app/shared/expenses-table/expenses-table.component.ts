@@ -16,14 +16,14 @@ import { ExpenseService } from 'src/app/services/expense.service';
 
 export class ExpensesTableComponent implements AfterViewInit {
   @Input()
-  pageTitle!: string
+  pageTitle!: string;
+  @Input()
+  searchParam!: number;
 
 
   displayedColumns: string[] = ['orgaoNome','valorEmpenhado', 'valorLiquidado', 'valorPago'];
   exampleDatabase!: IHttpResponse;
   data!: ExpenseModel[];
-
-  month = 1;
 
   resultsLength = 0;
   isLoadingResults = true;
@@ -49,25 +49,25 @@ export class ExpensesTableComponent implements AfterViewInit {
         if (this.pageTitle === "Month") {
           return this.expenseService!
             .getExpensesByMonth(
-              this.month,
+              this.searchParam,
               params
             ).pipe(catchError(() => of(null)));
         } else if(this.pageTitle === "Category") {
           return this.expenseService!
-          .getExpensesByMonth(
-            this.month,
+          .getExpensesByCategory(
+            this.searchParam,
             params
           ).pipe(catchError(() => of(null)));
         } else if(this.pageTitle === "Source") {
           return this.expenseService!
           .getExpensesByMonth(
-            this.month,
+            this.searchParam,
             params
           ).pipe(catchError(() => of(null)));
         } else {
           return this.expenseService!
           .getExpensesByMonth(
-            this.month,
+            this.searchParam,
             params
           ).pipe(catchError(() => of(null)));
         }
