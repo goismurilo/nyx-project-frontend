@@ -5,6 +5,7 @@ import { IHttpResponse } from '../interfaces/httpResponse';
 import { IPagination } from '../interfaces/pagination';
 import { ITotalAmount } from '../interfaces/totalAmount';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -25,6 +26,10 @@ export class ExpenseService {
 
   getTotalAmountExpenses(): Observable<ITotalAmount> {
     return this._httpClient.get<ITotalAmount>(`${this.baseUrl}/amount`)
+  }
+
+  getAllInfoExpenses(name: String): Observable<ITotalAmount[]> {
+    return this._httpClient.get<ITotalAmount[]>(`${this.baseUrl}/${name}/info`)
   }
 
   getExpensesByMonth(month: number, page: IPagination): Observable<IHttpResponse> {
