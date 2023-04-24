@@ -7,7 +7,7 @@
   padding-bottom: 2rem;
 }
 
-.pledged {
+.card {
   height: 100%;
   background-color: #ef476f;
   width: calc(100% - 1rem);
@@ -18,40 +18,30 @@
   flex-direction: column;
 }
 
-.paidOff {
-  height: 100%;
+#paidOff {
   background-color: #ffd166;
-  width: calc(100% - 1rem);
-
-  border-radius: 2rem;
-  margin: .2rem;
-  display: flex;
-  flex-direction: column;
 }
 
-.paid {
-  height: 100%;
+
+#paid {
   background-color: #06d6a0;
-  width: calc(100% - 1rem);
-  border-radius: 2rem;
-  margin: .2rem;
-  display: flex;
-  flex-direction: column;
+}
+
+mat-icon, span {
+  color: #FFF;
+  padding: .9rem 0rem .2rem 1.6rem;
 }
 
 mat-icon {
-  color: #FFF;
-  padding: .9rem 0rem .2rem 2rem;
   font-size: 4rem;
   width: 4rem;
   height: 4rem;
 }
 
 span {
-  color: #FFF;
   font-weight: 700;
   font-size: .9rem;
-  padding: .4rem 0rem 0rem 2rem;
+  padding: .4rem 0rem 0rem 1.6rem;
   position: relative;
 }
 
