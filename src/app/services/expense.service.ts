@@ -14,6 +14,14 @@ export class ExpenseService {
   constructor(private _httpClient: HttpClient) { }
   exp!: IHttpResponse;
 
+  getAllExpenses(page: IPagination): Observable<IHttpResponse> {
+    const params = {
+      size: page.size,
+      page: page.page,
+    };
+    return this._httpClient.get<IHttpResponse>(`${this.baseUrl}`, { params })
+  }
+
   getExpensesByMonth(month: number, page: IPagination): Observable<IHttpResponse> {
     const params = {
       size: page.size,
