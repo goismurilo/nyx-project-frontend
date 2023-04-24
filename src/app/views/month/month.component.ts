@@ -8,7 +8,7 @@ import { IMonth } from '../../interfaces/months';
 })
 export class MonthComponent implements OnInit {
 
-  pageTitle = 'Month';
+  pageTitle = 'month';
 
   monthSelected: any = 1;
   searchParam = this.monthSelected;
