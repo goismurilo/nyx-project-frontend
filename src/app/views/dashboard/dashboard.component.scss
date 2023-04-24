@@ -1,15 +1,21 @@
 .container {
-  width: 400px;
-  // height: 300px;
-  align-items: center;
-}
+  height: 100%;
+  width: 100%;
+  background-color: #eeeeee;
 
-mat-drawer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+
 }
 
-a {
-  padding: 20px;
-  text-decoration: none;
+.sub-container {
+  width: 100%;
+  padding: 4rem 3rem;
+
+  h1 {
+    font-weight: bold;
+    font-size: 2rem;
+    color: #0A369D;
+    padding-bottom: 3rem;
+  }
 }
