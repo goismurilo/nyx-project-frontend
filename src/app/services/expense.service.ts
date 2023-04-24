@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IHttpResponse } from '../interfaces/httpResponse';
 import { IPagination } from '../interfaces/pagination';
+import { ITotalAmount } from '../interfaces/totalAmount';
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +21,10 @@ export class ExpenseService {
       page: page.page,
     };
     return this._httpClient.get<IHttpResponse>(`${this.baseUrl}`, { params })
+  }
+
+  getTotalAmountExpenses(): Observable<ITotalAmount> {
+    return this._httpClient.get<ITotalAmount>(`${this.baseUrl}/amount`)
   }
 
   getExpensesByMonth(month: number, page: IPagination): Observable<IHttpResponse> {
