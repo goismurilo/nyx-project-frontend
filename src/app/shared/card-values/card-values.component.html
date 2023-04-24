@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="pledged">
+    <mat-icon aria-hidden="false" fontIcon="account_balance_wallet"></mat-icon>
+    <span>Valor Empenhado</span>
+    <span class="title">{{pledged | currency : 'BRL'}}</span>
+  </div>
+  <div class="paidOff">
+    <mat-icon aria-hidden="false" fontIcon="savings"></mat-icon>
+    <span>Valor Liquidado</span>
+    <span class="title">{{paidOff | currency : 'BRL'}}</span>
+  </div>
+  <div class="paid">
+    <mat-icon aria-hidden="false" fontIcon="paid"></mat-icon>
+    <span>Valor Pago</span>
+    <span class="title">{{paid | currency : 'BRL'}}</span>
+  </div>
+</div>
