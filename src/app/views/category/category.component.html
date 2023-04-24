@@ -2,6 +2,18 @@
   <app-side-bar></app-side-bar>
   <div class="sub-container">
     <h1>Despesas totais agrupadas por Categoria</h1>
-    <app-expenses-table [pageTitle]="pageTitle"></app-expenses-table>
+    <h4>Selecione um mês</h4>
+    <mat-form-field appearance="fill">
+      <mat-label>Categoria</mat-label>
+      <mat-select [(ngModel)]="categorySelected" name="month" (selectionChange)="onChangeCategory()">
+        <mat-option *ngFor="let info of categories" [value]="info.code">
+          {{info.name}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <app-card-values [pageTitle]="pageTitle" [infoPage]="infoPage"></app-card-values>
+
+    <app-expenses-table [pageTitle]="pageTitle" [searchParam]="searchParam"></app-expenses-table>
   </div>
 </div>

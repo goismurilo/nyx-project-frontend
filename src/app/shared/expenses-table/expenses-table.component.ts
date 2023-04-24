@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ViewChild, Input, SimpleChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { catchError, map, merge, of, startWith, switchMap } from 'rxjs';
 import { IHttpResponse } from 'src/app/interfaces/httpResponse';
@@ -28,7 +27,6 @@ export class ExpensesTableComponent implements AfterViewInit {
   isRateLimitReached = false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
-  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(private expenseService: ExpenseService) {}
 
@@ -44,19 +42,19 @@ export class ExpensesTableComponent implements AfterViewInit {
           size: this.paginator.pageSize
         }
 
-        if (this.pageTitle === "Month") {
+        if (this.pageTitle === "month") {
           return this.expenseService!
             .getExpensesByMonth(
               this.searchParam,
               params
             ).pipe(catchError(() => of(null)));
-        } else if(this.pageTitle === "Category") {
+        } else if(this.pageTitle === "category") {
           return this.expenseService!
           .getExpensesByCategory(
             this.searchParam,
             params
           ).pipe(catchError(() => of(null)));
-        } else if(this.pageTitle === "Source") {
+        } else if(this.pageTitle === "source") {
           return this.expenseService!
           .getExpensesBySource(
             this.searchParam,
@@ -64,8 +62,7 @@ export class ExpensesTableComponent implements AfterViewInit {
           ).pipe(catchError(() => of(null)));
         } else {
           return this.expenseService!
-          .getExpensesByMonth(
-            this.searchParam,
+          .getAllExpenses(
             params
           ).pipe(catchError(() => of(null)));
         }
