@@ -1,0 +1,7 @@
+<div class="container">
+  <h2>Despesas por Fonte de Recursos</h2>
+  <div class="doughnut">
+    <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+    <canvas id="graphic">{{ chart }}</canvas>
+  </div>
+</div>

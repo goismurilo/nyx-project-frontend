@@ -27,6 +27,7 @@ import { CardValuesComponent } from './shared/card-values/card-values.component'
 
 import ptBr from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
+import { DoughnutChartComponent } from './shared/doughnut-chart/doughnut-chart.component';
 
 
 registerLocaleData(ptBr);
@@ -40,6 +41,7 @@ registerLocaleData(ptBr);
     SourceComponent,
     ExpensesTableComponent,
     CardValuesComponent,
+    DoughnutChartComponent,
   ],
   imports: [
     BrowserModule,
