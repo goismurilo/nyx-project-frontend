@@ -1,5 +1,5 @@
 .container {
-  height: 100%;
+  height: auto;
   width: 100%;
   background-color: #eeeeee;
 
@@ -17,5 +17,27 @@
     font-size: 4rem;
     color: #0A369D;
     padding-bottom: 3rem;
+  }
+
+  .bar-chart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .area {
+    margin-top: 3rem;
+    border: 1px solid #92B4F4;
+    border-radius: 2rem;
+    padding: 3rem;
+  }
+
+  h3 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #0A369D;
+    padding: .6rem;
   }
 }

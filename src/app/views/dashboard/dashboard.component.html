@@ -3,7 +3,21 @@
   <div class="sub-container">
     <h2>Recife - 2017</h2>
     <h1>Despesas Orçamentárias</h1>
-    <app-card-values></app-card-values>
+
+    <app-card-values [pageTitle]="pageTitle"></app-card-values>
+
+    <div class="area">
+      <h3>Despesas por mês</h3>
+
+      <div class="bar-chart">
+        <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
+        <canvas id="graph">{{ barChart }}</canvas>
+      </div>
+    </div>
+
+    <app-doughnut-chart></app-doughnut-chart>
+
+    <h3>Todas as despesas</h3>
     <app-expenses-table [pageTitle]="pageTitle" ></app-expenses-table>
   </div>
 </div>
