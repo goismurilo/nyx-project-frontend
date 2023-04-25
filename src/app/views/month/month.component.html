@@ -12,7 +12,7 @@
       </mat-select>
     </mat-form-field>
 
-    <app-card-values [pageTitle]="pageTitle"></app-card-values>
+    <app-card-values [pageTitle]="pageTitle" [infoPage]="infoPage"></app-card-values>
 
     <app-expenses-table *ngIf="monthSelected" [pageTitle]="pageTitle" [searchParam]="searchParam"></app-expenses-table>
   </div>

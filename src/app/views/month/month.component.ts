@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IMonth } from '../../interfaces/months';
+import { ITotalAmount } from 'src/app/interfaces/totalAmount';
+import { ExpenseService } from 'src/app/services/expense.service';
 
 @Component({
   selector: 'app-month',
@@ -9,9 +11,10 @@ import { IMonth } from '../../interfaces/months';
 export class MonthComponent implements OnInit {
 
   pageTitle = 'month';
-
-  monthSelected: any = 1;
-  searchParam = this.monthSelected;
+  infoPage!: ITotalAmount;
+  searchParam!: number;
+  monthSelected: number = 1;
+  monthData!:ITotalAmount[];
 
   months: IMonth[] = [
     {value: 1, viewValue: 'Janeiro'},
@@ -28,11 +31,19 @@ export class MonthComponent implements OnInit {
     {value: 12, viewValue: 'Dezembro'},
   ];
 
+  constructor(private expenseService: ExpenseService) {}
+
   ngOnInit(): void {
+    this.expenseService.getAllInfoExpenses(this.pageTitle).subscribe(data => {
+      this.infoPage = data[0];
+      this.monthData = data;
+      this.searchParam = data[0].code;
+    })
   }
 
   onChangeMonth(): void {
     this.searchParam = this.monthSelected;
+    this.infoPage = this.monthData.filter(month => month.code === this.monthSelected)[0];
   }
 
 }

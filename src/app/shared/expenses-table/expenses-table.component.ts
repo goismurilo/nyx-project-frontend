@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, ViewChild, Input, SimpleChanges } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
 import { catchError, map, merge, of, startWith, switchMap } from 'rxjs';
 import { IHttpResponse } from 'src/app/interfaces/httpResponse';
 import { IPagination } from 'src/app/interfaces/pagination';
