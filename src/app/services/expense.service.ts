@@ -28,8 +28,12 @@ export class ExpenseService {
     return this._httpClient.get<ITotalAmount>(`${this.baseUrl}/amount`)
   }
 
-  getAllInfoExpenses(name: String): Observable<ITotalAmount[]> {
-    return this._httpClient.get<ITotalAmount[]>(`${this.baseUrl}/${name}/info`)
+  getAllInfoExpenses(pageTitle: string): Observable<ITotalAmount[]> {
+    const params = {
+      name: pageTitle,
+
+    };
+    return this._httpClient.get<ITotalAmount[]>(`${this.baseUrl}/info`, { params });
   }
 
   getExpensesByMonth(month: number, page: IPagination): Observable<IHttpResponse> {
